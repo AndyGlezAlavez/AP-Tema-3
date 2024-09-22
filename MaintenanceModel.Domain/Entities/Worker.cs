@@ -41,10 +41,11 @@ namespace MaintenanceModel.Domain.Entities
         /// </summary>
         /// <param name="cI"></param>
         /// <param name="name"></param>
-        public Worker(Guid id,string cI, string name) : base(id) 
+        public Worker(Guid id,string cI, string name,Maintenance maintenance) : base(id) 
         {
             CI = cI;
             Name = name;
+            Maintenance = maintenance;
         }
     }
 }

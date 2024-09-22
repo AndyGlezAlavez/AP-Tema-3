@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MaintenanceModel.Contracts\MaintenanceModel.Contracts.csproj" />
     <ProjectReference Include="..\MaintenanceModel.Domain\MaintenanceModel.Domain.csproj" />
   </ItemGroup>
 

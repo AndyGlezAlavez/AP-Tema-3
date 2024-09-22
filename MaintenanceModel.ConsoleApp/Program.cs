@@ -29,10 +29,7 @@ namespace MaintenanceModel.ConsoleApp
             appContext.SaveChanges();
 
             Guid id1 = Guid.NewGuid();
-            Worker worker1 = new Worker(id1, "01234567891", "Pepe");
-
-            worker1.MaintenanceId = maintenance1.Id;
-            worker1.Maintenance = maintenance1;
+            Worker worker1 = new Worker(id1, "01234567891", "Pepe",maintenance1);
 
             appContext.Workers.Add(worker1);
             appContext.SaveChanges();
