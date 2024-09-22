@@ -1,4 +1,5 @@
-﻿using MaintenanceModel.Domain.Types;
+﻿using MaintenanceModel.Domain.Common;
+using MaintenanceModel.Domain.Types;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,22 +8,46 @@ using System.Threading.Tasks;
 
 namespace MaintenanceModel.Domain.Entities
 {
-    public class Maintenance
+    public class Maintenance : Entity
     {
+        #region Properties
         /// <summary>
         /// Tipo de mantenuiento Correctivo predictivo o preventivo
         /// </summary>
-        MaintenanceTypes Type { get; set; }
+        public MaintenanceTypes Type { get; set; }
 
         /// <summary>
         /// Descripcion de los mantenimientos
         /// </summary>
-        string Description { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// Fecha del mantenimiento
         /// </summary>
-        DateTime Date {  get; set; }
+        public DateTime Date {  get; set; }
+
+
+        /// <summary>
+        /// lista de trabajadores que realizan el mantenimiento
+        /// </summary>
+        public List<Worker> Workers { get; set; }
+
+        /// <summary>
+        /// Unidad a la que se le realiza el mantenimiento
+        /// </summary>
+        public Unit Unit { get; set; }
+
+        /// <summary>
+        /// Identificador de la unidad a la que se le realiza el mantenimiento
+        /// </summary>
+        public Guid UnitId { get; set; }
+
+        #endregion
+
+        /// <summary>
+        /// Constructor requerido por entityframework
+        /// </summary>
+        protected Maintenance() { }
 
         /// <summary>
         /// Constructor de los mantenimientos
@@ -30,11 +55,12 @@ namespace MaintenanceModel.Domain.Entities
         /// <param name="type"></param>
         /// <param name="description"></param>
         /// <param name="date"></param>
-        public Maintenance(MaintenanceTypes type,string description, DateTime date)
+        public Maintenance(Guid id,MaintenanceTypes type,string description, DateTime date, Unit unit): base(id) 
         {
             Type = type;
             Description = description;
             Date = date;
+            Unit = unit;
         }
     }
 }

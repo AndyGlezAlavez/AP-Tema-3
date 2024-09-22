@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MaintenanceModel.Domain.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,29 +7,36 @@ using System.Threading.Tasks;
 
 namespace MaintenanceModel.Domain.Entities
 {
-    public class Unit
+    public class Unit : Entity
     {
         #region Properties
         /// <summary>
         /// Nombre de la unidad
         /// </summary>
-        string Name {  get; set; }
+        public string Name {  get; set; }
 
         /// <summary>
         /// Codigo de la unidad
         /// </summary>
-        string Code { get; set; }
+        public string Code { get; set; }
 
         /// <summary>
         /// Fabricante de la unidad
         /// </summary>
-        string Manufacture {  get; set; }
+        public string Manufacture {  get; set; }
 
         /// <summary>
         /// Fecha de puesta en marcha de la unidad
         /// </summary>
-        DateTime StartDate { get; set; }
+        public DateTime StartDate { get; set; }
+
+        public List<Maintenance> Maintenances { get; set; }
         #endregion
+
+        /// <summary>
+        /// Constructor requerido por entityframework
+        /// </summary>
+        protected Unit() { }
 
         /// <summary>
         /// Constructor de unidades
@@ -37,7 +45,7 @@ namespace MaintenanceModel.Domain.Entities
         /// <param name="code"></param>
         /// <param name="manufacture"></param>
         /// <param name="startDate"></param>
-        public Unit(string name, string code, string manufacture, DateTime startDate)
+        public Unit(Guid id,string name, string code, string manufacture, DateTime startDate): base(id)
         {
             Name = name;
             Code = code;
