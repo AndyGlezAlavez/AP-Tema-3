@@ -1,0 +1,53 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "MaintenanceModel.GrpcProtos.Unit";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "common.proto";
+
+
+
+service Unitp{
+
+	rpc CreateUnit (CreateUnitRequest) returns (UnitDTO);
+	rpc GetUnit(GetRequest) returns (NullableUnitDTO);
+	rpc GetAllUnit (google.protobuf.Empty) returns (Units);
+	rpc UpdateUnit (UnitDTO) returns (google.protobuf.Empty);
+	rpc DeleteUnit (DeleteRequest) returns (google.protobuf.Empty);
+
+}
+
+message UnitDTO{
+	string id=1;
+	string name =2;
+	string code =3;
+	string manufacture=4;
+	google.protobuf.Timestamp startdate=5;
+}
+
+message Units{
+	repeated UnitDTO items = 1;
+}
+
+message NullableUnitDTO{
+	oneof kind{
+		google.protobuf.NullValue null = 1;
+		UnitDTO unit = 2;
+	}
+	
+}
+
+
+message CreateUnitRequest
+{
+	string name =1;
+	string code =2;
+	string manufacture=3;
+	google.protobuf.Timestamp startdate=4;
+
+}

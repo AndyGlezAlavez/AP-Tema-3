@@ -1,0 +1,53 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "MaintenanceModel.GrpcProtos.Worker";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "common.proto";
+import "Maintenance.proto";
+
+
+
+
+service Worker {
+
+	rpc CreateWorker (CreateWorkerRequest) returns (WorkerDTO);
+	rpc GetWorker(GetRequest) returns (NullableWorkerDTO);
+	rpc GetAllWorker (google.protobuf.Empty) returns (Workers);
+	rpc UpdateWorker (WorkerDTO) returns (google.protobuf.Empty);
+	rpc DeleteWorker (DeleteRequest) returns (google.protobuf.Empty);
+
+}
+
+message WorkerDTO{
+	string id=1;
+	string name =2;
+	string ci=3;
+	MaintenanceDTO maintenance=4;
+}
+
+message Workers{
+	repeated WorkerDTO items = 1;
+}
+
+message NullableWorkerDTO{
+	oneof kind{
+		google.protobuf.NullValue null = 1;
+		WorkerDTO worker = 2;
+	}
+	
+}
+
+
+message CreateWorkerRequest
+{
+	string name =1;
+	string ci=2;
+	MaintenanceDTO maintenance=3;
+
+}

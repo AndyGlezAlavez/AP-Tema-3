@@ -1,0 +1,19 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "MaintenanceModel.GrpcProtos";
+
+package GrpcProtos;
+
+
+message GetRequest{
+	string id = 1;
+}
+
+message DeleteRequest{
+	string id = 1;
+}
+enum MaintenanceTypes{
+    Corrective=0;
+    Predictive=1;
+    Preventive=2;
+}

@@ -1,0 +1,54 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "MaintenanceModel.GrpcProtos.Maintenance";
+
+package GrpcProtos;
+
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/timestamp.proto";
+import "common.proto";
+import "Unit.proto";
+
+
+
+service Maintenance {
+
+	rpc CreateMaintenance(CreateMaintenanceRequest) returns (MaintenanceDTO);
+	rpc GetMaintenance(GetRequest) returns (NullableMaintenanceDTO);
+	rpc GetAllMaintenance (google.protobuf.Empty) returns (Maintenaces);
+	rpc UpdateMaintenance (MaintenanceDTO) returns (google.protobuf.Empty);
+	rpc DeleteMainteannce (DeleteRequest) returns (google.protobuf.Empty);
+
+}
+
+message MaintenanceDTO{
+	string id=1;
+	MaintenanceTypes type=2;
+	string description=3;
+	google.protobuf.Timestamp date=4;
+	UnitDTO Unit = 5;
+}
+
+message Maintenaces{
+	repeated MaintenanceDTO items = 1;
+}
+
+message NullableMaintenanceDTO{
+	oneof kind{
+		google.protobuf.NullValue null = 1;
+		MaintenanceDTO maintenance = 2;
+	}
+	
+}
+
+
+message CreateMaintenanceRequest
+{
+	MaintenanceTypes type=1;
+	string description=2;
+	google.protobuf.Timestamp date=3;
+	UnitDTO Unit = 4;
+
+}

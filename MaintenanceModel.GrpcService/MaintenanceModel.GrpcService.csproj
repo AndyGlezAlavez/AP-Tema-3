@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Google.Protobuf" Version="3.27.2" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.65.0" />
+    <PackageReference Include="MediatR" Version="12.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MaintenanceModel.Application\MaintenanceModel.Application.csproj" />
+    <ProjectReference Include="..\MaintenanceModel.Contracts\MaintenanceModel.Contracts.csproj" />
+    <ProjectReference Include="..\MaintenanceModel.DataAccess\MaintenanceModel.DataAccess.csproj" />
+    <ProjectReference Include="..\MaintenanceModel.Domain\MaintenanceModel.Domain.csproj" />
+    <ProjectReference Include="..\MaintenanceModel.GrpcProtos\MaintenanceModel.GrpcProtos.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Protos\" />
+  </ItemGroup>
+
+</Project>

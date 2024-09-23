@@ -5,13 +5,19 @@ VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaintenanceModel.Domain", "MaintenanceModel.Domain\MaintenanceModel.Domain.csproj", "{70927E98-0F07-4EEE-B822-55BE9557CCC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceModel.DataAccess", "MaintenanceModel.DataAccess\MaintenanceModel.DataAccess.csproj", "{670BE5B7-DAE0-4DCD-8975-0740D4843698}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaintenanceModel.DataAccess", "MaintenanceModel.DataAccess\MaintenanceModel.DataAccess.csproj", "{670BE5B7-DAE0-4DCD-8975-0740D4843698}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceModel.ConsoleApp", "MaintenanceModel.ConsoleApp\MaintenanceModel.ConsoleApp.csproj", "{38BF1C21-FFD8-470B-8F66-9B09221F3034}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaintenanceModel.ConsoleApp", "MaintenanceModel.ConsoleApp\MaintenanceModel.ConsoleApp.csproj", "{38BF1C21-FFD8-470B-8F66-9B09221F3034}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceModel.Contracts", "MaintenanceModel.Contracts\MaintenanceModel.Contracts.csproj", "{D20F473C-1A95-42D2-8DA2-5B6832B9D197}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaintenanceModel.Contracts", "MaintenanceModel.Contracts\MaintenanceModel.Contracts.csproj", "{D20F473C-1A95-42D2-8DA2-5B6832B9D197}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceModel.DataAccess.Test", "MaintenanceModel.DataAccess.Test\MaintenanceModel.DataAccess.Test.csproj", "{AA2AC684-2D7E-41B0-9ED5-37ED41FABC11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaintenanceModel.DataAccess.Test", "MaintenanceModel.DataAccess.Test\MaintenanceModel.DataAccess.Test.csproj", "{AA2AC684-2D7E-41B0-9ED5-37ED41FABC11}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaintenanceModel.GrpcService", "MaintenanceModel.GrpcService\MaintenanceModel.GrpcService.csproj", "{665D4364-61D8-426B-8601-3210B62DFA51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceModel.GrpcProtos", "MaintenanceModel.GrpcProtos\MaintenanceModel.GrpcProtos.csproj", "{BD0AAEDE-CDEF-414D-B3E7-6E4BEE5CA2E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MaintenanceModel.Application", "MaintenanceModel.Application\MaintenanceModel.Application.csproj", "{BBFC651D-4923-488A-8A88-23F6608A712E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +45,18 @@ Global
 		{AA2AC684-2D7E-41B0-9ED5-37ED41FABC11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA2AC684-2D7E-41B0-9ED5-37ED41FABC11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA2AC684-2D7E-41B0-9ED5-37ED41FABC11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{665D4364-61D8-426B-8601-3210B62DFA51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{665D4364-61D8-426B-8601-3210B62DFA51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{665D4364-61D8-426B-8601-3210B62DFA51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{665D4364-61D8-426B-8601-3210B62DFA51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD0AAEDE-CDEF-414D-B3E7-6E4BEE5CA2E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD0AAEDE-CDEF-414D-B3E7-6E4BEE5CA2E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD0AAEDE-CDEF-414D-B3E7-6E4BEE5CA2E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD0AAEDE-CDEF-414D-B3E7-6E4BEE5CA2E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBFC651D-4923-488A-8A88-23F6608A712E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBFC651D-4923-488A-8A88-23F6608A712E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBFC651D-4923-488A-8A88-23F6608A712E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBFC651D-4923-488A-8A88-23F6608A712E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
