@@ -6,12 +6,8 @@ using MaintenanceModel.Application.Maintenances.Commands.DeleteMaintenance;
 using MaintenanceModel.Application.Maintenances.Commands.UpdateMaintenance;
 using MaintenanceModel.Application.Maintenances.Queries.GetAllMaintenance;
 using MaintenanceModel.Application.Maintenances.Queries.GetMaintenanceById;
-using MaintenanceModel.Application.Units.Commands.CreateUnit;
-using MaintenanceModel.Application.Units.Commands.UpdateUnit;
-using MaintenanceModel.Application.Units.Queries.GetUnitById;
 using MaintenanceModel.GrpcProtos;
 using MaintenanceModel.GrpcProtos.Maintenance;
-using MaintenanceModel.GrpcProtos.Unit;
 using MediatR;
 
 namespace MaintenanceModel.GrpcService.Services
@@ -30,10 +26,10 @@ namespace MaintenanceModel.GrpcService.Services
         public override Task<MaintenanceDTO> CreateMaintenance(CreateMaintenanceRequest request, ServerCallContext context)
         {
             var command = new CreateMaintenanceCommand(
-                _mapper.Map<MaintenanceModel.Domain.Types.MaintenanceTypes>(request.Type),
+                (Domain.Types.MaintenanceTypes)request.Type,
                 request.Description,
                 request.Date.ToDateTime(),
-                _mapper.Map<MaintenanceModel.Domain.Entities.Unit>(request.Unit));
+                _mapper.Map<Domain.Entities.Unit>(request.Unit));
 
             var result = _mediator.Send(command).Result;
             result.Date = DateTime.SpecifyKind(result.Date, DateTimeKind.Local).ToUniversalTime();
@@ -64,6 +60,9 @@ namespace MaintenanceModel.GrpcService.Services
             var query = new GetMaintenanceByIDQuery(new Guid(request.Id));
 
             var result = _mediator.Send(query).Result;
+
+            result.Date = DateTime.SpecifyKind(result.Date, DateTimeKind.Local).ToUniversalTime();
+
 
             if (result == null)
                 return Task.FromResult(new NullableMaintenanceDTO() { Null = NullValue.NullValue });

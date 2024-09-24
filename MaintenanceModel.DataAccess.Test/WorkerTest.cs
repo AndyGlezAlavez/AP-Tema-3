@@ -14,8 +14,8 @@ namespace MaintenanceModel.DataAccess.Test
     [TestClass]
     public class WorkerTest
     {
-        public IUnitOfWork _unitOfWork;
-        public IWorkerRepository _workerrepository;
+        private IUnitOfWork _unitOfWork;
+        private IWorkerRepository _workerrepository;
         private IMaintenanceRepository _maintenaceRepository;
 
         public WorkerTest()

@@ -12,13 +12,16 @@ namespace MaintenanceModel.GrpcService.Mappers
                 .ForMember(t => t.Id, o => o.MapFrom(s => s.Id.ToString()))
                 .ForMember(t => t.Type, o => o.MapFrom(s => (MaintenanceModel.GrpcProtos.MaintenanceTypes)s.Type))
                 .ForMember(t => t.Description, o => o.MapFrom(s => s.Description))
-                .ForMember(t => t.Date, o => o.MapFrom(s => Timestamp.FromDateTime(s.Date)));
+                .ForMember(t => t.Date, o => o.MapFrom(s => Timestamp.FromDateTime(s.Date)))
+                .ForMember(t=>t.Unit, o =>o.MapFrom(s=>s.Unit));
 
             CreateMap<MaintenanceModel.GrpcProtos.Maintenance.MaintenanceDTO,
                 MaintenanceModel.Domain.Entities.Maintenance>()
-                .ForMember(t => t.Type, o => o.MapFrom(s => (MaintenanceModel.Domain.Types.MaintenanceTypes)s.Type))
+                .ForMember(t => t.Id, o => o.MapFrom(s => new Guid(s.Id)))
+                .ForMember(t => t.Type, o => o.MapFrom(s => (MaintenanceModel.Domain.Types.MaintenanceTypes)s.Type ))
                 .ForMember(t => t.Description, o => o.MapFrom(s => s.Description))
-                .ForMember(t => t.Date, o => o.MapFrom(s => s.Date.ToDateTime()));
+                .ForMember(t => t.Date, o => o.MapFrom(s => s.Date.ToDateTime()))
+                .ForMember(t=>t.Unit,o=>o.MapFrom(s=>s.Unit));
         }
     }
 }

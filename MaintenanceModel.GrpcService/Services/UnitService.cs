@@ -6,7 +6,6 @@ using MaintenanceModel.Application.Units.Commands.DeleteUnit;
 using MaintenanceModel.Application.Units.Commands.UpdateUnit;
 using MaintenanceModel.Application.Units.Queries.GetAllUnit;
 using MaintenanceModel.Application.Units.Queries.GetUnitById;
-using MaintenanceModel.Application.Workers.Commands.DeleteWorker;
 using MaintenanceModel.GrpcProtos;
 using MaintenanceModel.GrpcProtos.Unit;
 using MediatR;
@@ -60,7 +59,7 @@ namespace MaintenanceModel.GrpcService.Services
 
         public override Task<Empty> UpdateUnit(UnitDTO request, ServerCallContext context)
         {
-            var command = new UpdateUnitCommand(_mapper.Map<MaintenanceModel.Domain.Entities.Unit>(request));
+            var command = new UpdateUnitCommand(_mapper.Map<Domain.Entities.Unit>(request));
 
             _mediator.Send(command);
 
@@ -71,6 +70,8 @@ namespace MaintenanceModel.GrpcService.Services
             var query = new GetUnitByIdQuery(new Guid(request.Id));
 
             var result = _mediator.Send(query).Result;
+            result.StartDate = DateTime.SpecifyKind(result.StartDate, DateTimeKind.Local).ToUniversalTime();
+
 
             if (result == null)
                 return Task.FromResult(new NullableUnitDTO() { Null = NullValue.NullValue });

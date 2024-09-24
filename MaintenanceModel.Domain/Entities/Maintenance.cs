@@ -59,7 +59,7 @@ namespace MaintenanceModel.Domain.Entities
         {
             Type = type;
             Description = description;
-            Date = date;
+            Date = date.ToUniversalTime();
             Unit = unit;
         }
     }

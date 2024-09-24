@@ -8,7 +8,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MaintenanceModel.DataAccess\MaintenanceModel.DataAccess.csproj" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.65.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MaintenanceModel.GrpcProtos\MaintenanceModel.GrpcProtos.csproj" />
   </ItemGroup>
 
 </Project>

@@ -50,7 +50,7 @@ namespace MaintenanceModel.Domain.Entities
             Name = name;
             Code = code;
             Manufacture = manufacture;
-            StartDate = startDate;
+            StartDate = startDate.ToUniversalTime();
         }
     }
 }

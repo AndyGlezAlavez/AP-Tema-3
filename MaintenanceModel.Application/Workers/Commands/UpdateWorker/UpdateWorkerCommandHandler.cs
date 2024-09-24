@@ -14,7 +14,7 @@ namespace MaintenanceModel.Application.Workers.Commands.UpdateWorker
         private readonly IUnitOfWork _unitOfWork;
         private readonly IWorkerRepository  _workerRepository;
 
-        UpdateWorkerCommandHandler(IUnitOfWork unitOfWork, IWorkerRepository workerRepository)
+        public UpdateWorkerCommandHandler(IUnitOfWork unitOfWork, IWorkerRepository workerRepository)
         {
             _unitOfWork = unitOfWork;
             _workerRepository = workerRepository;
